@@ -31,6 +31,7 @@
         <!-- ALL -->
         <div id="Indexbox">
             <div :class="{ blackWindow: true, blackWindowShow: tabState || menuTabState || pagesTabState }" @click="closeBlackWindow"></div>
+
             <!-- 顶部菜单 -->
             <div class="menu" id="menu">
                 <img src="favicon.ico" alt="favicon">
@@ -61,15 +62,6 @@
             </div>
 
             <!-- 左侧菜单按钮 -->
-            <!-- <div class="leftBar">
-                <div class="leftBarButtomMe" @click="changeTab"></div>
-                <div class="leftBarButtomMenu" @click="changeMenuTab">
-                    <div class="div1"></div>
-                    <div class="div2"></div>
-                    <div class="div3"></div>
-                </div>
-                <div class="leftBarButtomPages" @click="changePagesTab"></div>
-            </div> -->
             <div class="leftBar">
                 <div class="leftBar-ButtomMe" onclick="MeClick(true)"></div>
                 <div class="leftBar-ButtomMenu" id="leftBar-ButtomMenu" onclick="MenuClick(true)">
@@ -81,46 +73,13 @@
             </div>
 
             <!-- 左侧拉出菜单 我 -->
-            <!-- <div :class="{ leftBarMe: true, leftBarMeClick: tabState }">
-                <div class="leftBarButtomClose" @click="closeBlackWindow">
-                    <div class="div1"></div>
-                    <div class="div2"></div>
-                </div>
-                <div class="img">
-                    <img src="https://q1.qlogo.cn/g?b=qq&nk=1656071287&s=640" alt="N0ts" />
-                </div>
-                <div class="introduction">
-                    <h1>N0ts</h1>
-                    <p>大专的咸鱼，爱好计算机、旅行、篮球，以及我公主般的女朋友。</p>
-                </div>
-                <div class="icon">
-                    <ul>
-                        <li>
-                            <a href="https://wpa.qq.com/msgrd?v=3&uin=1656071287&site=qq&menu=yes" target="_blank"><i class="fa fa-qq" aria-hidden="true"></i
-                            ></a>
-                        </li>
-                        <li>
-                            <a href="https://gitee.com/nutssss" target="_blank"><i class="fa fa-github fa-lg" aria-hidden="true"></i
-                            ></a>
-                        </li>
-                        <li>
-                            <a href="https://blog.n0ts.cn/" target="_blank"><i class="fa fa-wordpress" aria-hidden="true"></i
-                            ></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="connect">
-                    <a href="https://blog.n0ts.cn/me" target="_blank">关于</a>
-                    <a href="https://blog.n0ts.cn/msg" target="_blank">留言</a>
-                </div>
-            </div> -->
             <div class="leftBar-Me" id="leftBar-Me">
                 <div class="leftBar-ButtomClose" onclick="MeClick(false)">
                     <div class="div1"></div>
                     <div class="div2"></div>
                 </div>
                 <div class="img">
-                    <img src="https://q1.qlogo.cn/g?b=qq&nk=1656071287&s=640" alt="N0ts">
+                    <img src="images/toux.jpg" alt="muzi">
                 </div>
                 <div class="introduction">
                     <h1>Muzi</h1>
@@ -138,68 +97,6 @@
                     <a href="">留言</a>
                 </div>
             </div>
-
-
-            <!-- 左侧拉出菜单 顶部菜单 -->
-            <!-- <div :class="{ leftBarTitleMenu: true, leftBarTitleMenuClick: menuTabState }">
-                <div class="leftBarButtomClose" @click="closeBlackWindow">
-                    <div class="div1"></div>
-                    <div class="div2"></div>
-                </div>
-                <h1>导航</h1>
-                <ul>
-                    <li>
-                        <a href="https://n0ts.cn/" target="_blank" @click="changeMenuTab">首页</a>
-                    </li>
-                    <li>
-                        <a href="https://blog.n0ts.cn/me" target="_blank" @click="changeMenuTab">关于我</a>
-                    </li>
-                    <li>
-                        <a href="https://blog.n0ts.cn/category/mywork" target="_blank" @click="changeMenuTab">我的垃圾项目</a
-                        >
-                    </li>
-                    <li>
-                        <a href="https://lovexhj.cn/" target="_blank" @click="changeMenuTab">我的爱人</a>
-                    </li>
-                    <li>
-                        <a href="https://note.n0ts.cn/" target="_blank" @click="changeMenuTab">笔记</a>
-                    </li>
-                    <li>
-                        <a href="https://blog.n0ts.cn/" target="_blank" @click="changeMenuTab">博客</a>
-                    </li>
-                    <li>
-                        <a href="https://blog.n0ts.cn/msg" target="_blank" @click="changeMenuTab">留言</a>
-                    </li>
-                </ul>
-            </div> -->
-
-            <!-- 左侧拉出菜单 页面 -->
-            <!-- <div :class="{ leftBarPages: true, leftBarPagesClick: pagesTabState }">
-                <div class="leftBarButtomClose" @click="closeBlackWindow">
-                    <div class="div1"></div>
-                    <div class="div2"></div>
-                </div>
-                <div class="leftBarPagesBox">
-                    <h1>页面</h1>
-                    <div class="leftBarPagesOptine" @click="changePageIndex(0)">
-                        <img src="https://n0ts.oss-cn-beijing.aliyuncs.com/images/nutssssIndex2/stuck_out_tongue.png" alt="stuck_out_tongue" />
-                        <p>hello world.md</p>
-                    </div>
-                    <div class="leftBarPagesOptine" @click="changePageIndex(1)">
-                        <img src="https://n0ts.oss-cn-beijing.aliyuncs.com/images/nutssssIndex2/stuck_out_tongue_closed_eyes.png" alt="stuck_out_tongue_closed_eyes" />
-                        <p>Gitee Project.md</p>
-                    </div>
-                    <div class="leftBarPagesOptine" @click="changePageIndex(2)">
-                        <img src="https://n0ts.oss-cn-beijing.aliyuncs.com/images/nutssssIndex2/stuck_out_tongue_winking_eye.png" alt="stuck_out_tongue_winking_eye" />
-                        <p>404.md</p>
-                    </div>
-                    <div class="leftBarPagesOptine" @click="changePageIndex(3)">
-                        <img src="https://n0ts.oss-cn-beijing.aliyuncs.com/images/nutssssIndex2/icecream.png" alt="icecream" />
-                        <p>My Life.md</p>
-                    </div>
-                </div>
-            </div> -->
-
 
             <!-- 左侧拉出菜单 顶部菜单 -->
             <div class="leftBar-titleMenu" id="leftBar-titleMenu">
@@ -232,6 +129,8 @@
                     </li>
                 </ul>
             </div>
+
+
             <!-- 左侧拉出菜单 页面 -->
             <div class="leftBar-Pages" id="leftBar-Pages">
                 <div class="leftBar-ButtomClose" onclick="PagesClick(false)">
@@ -465,11 +364,6 @@
 
         </div>
     </div>
-
-
-    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.min.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.min.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.10.1/viewer.min.js"></script> -->
     <script src="./js/N0ts.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="./js/viewer.min.js"></script>
