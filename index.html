@@ -64,6 +64,8 @@
             <!-- 左侧菜单按钮 -->
             <div class="leftBar">
                 <div class="leftBar-ButtomMe" onclick="MeClick(true)"></div>
+                <!-- <div class="leftBar-ButtomMe" onclick="MeClick(true)"></div> -->
+                <div class="leftBar-ButtomMe1" onclick="MeClick(true)"></div>
                 <div class="leftBar-ButtomMenu" id="leftBar-ButtomMenu" onclick="MenuClick(true)">
                     <div class="div1"></div>
                     <div class="div2"></div>
@@ -141,23 +143,27 @@
                     <h1>页面</h1>
                     <div class="leftBar-Pages-optine" id="leftBar-Pages-optine1" onclick="pages_title_option_click(1 ,false);PagesClick(false)">
                         <img src="./images/stuck_out_tongue.png" alt="stuck_out_tongue">
-                        <p>hello world.md</p>
+                        <p>hello 猪猪.md</p>
                     </div>
                     <div class="leftBar-Pages-optine" id="leftBar-Pages-optine2" onclick="pages_title_option_click(2, false);PagesClick(false)">
                         <img src="./images/stuck_out_tongue_closed_eyes.png" alt="stuck_out_tongue_closed_eyes">
-                        <p>Gitee Project.md</p>
+                        <p>我的开源项目.md</p>
                     </div>
                     <div class="leftBar-Pages-optine" id="leftBar-Pages-optine3" onclick="pages_title_option_click(3 ,false);PagesClick(false)">
                         <img src="./images/stuck_out_tongue_winking_eye.png" alt="stuck_out_tongue_winking_eye">
-                        <p>hello world.md</p>
+                        <p>我的笔记.md</p>
                     </div>
                     <div class="leftBar-Pages-optine" id="leftBar-Pages-optine4" onclick="pages_title_option_click(4 ,false);PagesClick(false)">
                         <img src="./images/yum.png" alt="yum">
-                        <p>hello world.md</p>
+                        <p>我的相册.md</p>
                     </div>
                     <div class="leftBar-Pages-optine" id="leftBar-Pages-optine5" onclick="pages_title_option_click(5 ,false);PagesClick(false)">
+                        <img src="./images/yum.png" alt="yum">
+                        <p>经历.md</p>
+                    </div>
+                    <div class="leftBar-Pages-optine" id="leftBar-Pages-optine6" onclick="pages_title_option_click(6 ,false);PagesClick(false)">
                         <img src="./images/icecream.png" alt="icecream">
-                        <p>My Life.md</p>
+                        <p>我的女孩.md</p>
                     </div>
                 </div>
             </div>
@@ -173,31 +179,36 @@
                     </div>
                     <div class="pages-title-option" id="pages-title-option2" onclick="pages_title_option_click(2, true)">
                         <img src="./images/stuck_out_tongue_closed_eyes.png" alt="stuck_out_tongue_closed_eyes">
-                        <p>Gitee Project.md</p>
+                        <p>我的开源项目.md</p>
                     </div>
                     <div class="pages-title-option" id="pages-title-option3" onclick="pages_title_option_click(3, true)">
                         <img src="./images/stuck_out_tongue_winking_eye.png" alt="stuck_out_tongue_winking_eye">
-                        <p>All my life.md</p>
+                        <p>我的笔记.md</p>
                     </div>
                     <div class="pages-title-option" id="pages-title-option4" onclick="pages_title_option_click(4, true)">
                         <img src="./images/yum.png" alt="yum">
-                        <p>hello world.md</p>
+                        <p>我的相册.md</p>
                     </div>
-                    <div class="pages-title-option" id="pages-title-option5" onclick="pages_title_option_click(4, true)">
+                    <div class="pages-title-option" id="pages-title-option5" onclick="pages_title_option_click(5, true)">
                         <img src="./images/yum.png" alt="yum">
-                        <p>hello world.md</p>
+                        <p>经历.md</p>
                     </div>
-                    <div class="pages-title-option" id="pages-title-option6" onclick="pages_title_option_click(5, true)" style="display: none;">
+                    <div class="pages-title-option" id="pages-title-option6" onclick="pages_title_option_click(6, true)" style="display: none;">
                         <img src="./images/icecream.png" alt="icecream">
                         <p>hello world.md</p>
                     </div>
-                    <div class="pages-title-option" id="pages-title-option7" onclick="pages_title_option_click(5, true)" style="display: none;">
+                    <!-- <div class="pages-title-option" id="pages-title-option6" onclick="pages_title_option_click(5, true)" style="display: none;">
                         <img src="./images/icecream.png" alt="icecream">
                         <p>hello world.md</p>
-                    </div>
+                    </div> -->
+                    <!-- <div class="pages-title-option" id="pages-title-option7" onclick="pages_title_option_click(5, true)" style="display: none;">
+                        <img src="./images/icecream.png" alt="icecream">
+                        <p>hello world.md</p>
+                    </div> -->
                 </div>
 
                 <!-- 页面 -->
+                <!-- 页面一 -->
                 <div class="pages-text pages-text-show" id="pages-text1">
                     <div class="pages-text-box" id="meMD">
                         <h1>你好，我是Muzi<br />热爱编程，旅游，运动。</h1>
@@ -233,6 +244,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- 页面二 -->
                 <div class="pages-text" id="pages-text2">
                     <div class="pages-text-box">
                         <h1>我的开源垃圾</h1>
@@ -271,14 +283,21 @@
                         <h1>test3</h1>
                     </div>
                 </div>
-
+                <!-- 页面四 -->
                 <div class="pages-text" id="pages-text4">
                     <div class="pages-text-box">
                         <h1>test4</h1>
                     </div>
                 </div>
-
+                <!-- 页面五 -->
                 <div class="pages-text" id="pages-text5">
+                    <div class="pages-text-box">
+                        <h1>test5</h1>
+                    </div>
+                </div>
+
+                <!-- 移动端我与她页面展示 -->
+                <div class="pages-text" id="pages-text6">
                     <div class="pages-text-box">
                         <h1>我与她</h1>
                         <p>2016-09-10</p>
@@ -297,25 +316,6 @@
                         <a href="http://muzu.gitee.io/vaj_-muzi_loveyou4" class="aClick" target="_blank">More?</a>
                     </div>
                 </div>
-                <!-- <div class="pages-text" id="pages-text5">
-                    <div class="pages-text-box">
-                        <h1>我与她</h1>
-                        <p>2016-09-10</p>
-                        <p>故事开始</p>
-                        <div class="pages-text-box-img">
-                            <img src="./images/love.jpg" alt="love1" class="n0ts-img">
-                            <h6>我们的第一张合影</h6>
-                        </div>
-                        <p>截止现在</p>
-                        <p id="lovetime1">d</p>
-                        <p>有你的每一天都如糖果一样甜</p>
-                        <div class="pages-text-box-img">
-                            <img src="./images/love2.jpg" alt="love2" class="n0ts-img">
-                            <h6>看电影日常</h6>
-                        </div>
-                        <a href="http://muzu.gitee.io/vaj_-muzi_loveyou4" class="aClick" target="_blank">More?</a>
-                    </div>
-                </div> -->
             </div>
 
             <!-- 页面版块2 -->
