@@ -5,20 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VAJ-Muzi</title>
-    <!-- <meta name="description" content="这里是网站介绍">
-    <meta name="keywords" content="这里是网站关键词"> -->
+    <script>
+        window.onload = function() {
+            document.getElementsByClassName("load")[0].style.display = "none";
+            document.getElementsByClassName("Box")[0].classList.add("BoxLoad");
+            resize();
+        }
+    </script>
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/viewer.min.css">
     <link rel="stylesheet" href="css/mind.css">
 </head>
-<script>
-    window.onload = function() {
-        document.getElementsByClassName("load")[0].style.display = "none";
-        document.getElementsByClassName("Box")[0].classList.add("BoxLoad");
-        resize();
-    }
-</script>
 
 <body>
     <div class="load">
