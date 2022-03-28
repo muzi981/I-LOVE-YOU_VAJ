@@ -12,6 +12,13 @@
     <link rel="stylesheet" href="css/viewer.min.css">
     <link rel="stylesheet" href="css/mind.css">
 </head>
+<script>
+    window.onload = function() {
+        document.getElementsByClassName("load")[0].style.display = "none";
+        document.getElementsByClassName("Box")[0].classList.add("BoxLoad");
+        resize();
+    }
+</script>
 
 <body>
     <div class="load">
@@ -465,16 +472,9 @@
     <!-- <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/viewerjs/1.10.1/viewer.min.js"></script> -->
+    <script src="./js/N0ts.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="./js/viewer.min.js"></script>
-    <script src="./js/N0ts.js"></script>
-    <script>
-        window.onload = function() {
-            document.getElementsByClassName("load")[0].style.display = "none";
-            document.getElementsByClassName("Box")[0].classList.add("BoxLoad");
-            resize();
-        }
-    </script>
 </body>
 
 </html>
