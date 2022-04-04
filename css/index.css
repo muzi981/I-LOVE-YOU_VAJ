@@ -838,8 +838,29 @@ h2 {
 }
 
 .pages-text-box {
+    margin: 0px 0 0 100px;
+    padding-bottom: 0px;
+}
+
+.pages-text-box1 {
     margin: 120px 0 0 100px;
-    padding-bottom: 50px;
+    padding-bottom: 0px;
+}
+
+
+/* 该代码为表白代码页设计专属 */
+
+.pages-text-box3 {
+    margin: 50px 0 0 100px;
+    padding-bottom: 0px;
+}
+
+
+/* 该代码是表白代码第二栏及其以下调高度的 */
+
+.pages-text-box4 {
+    margin: 70px 0 0 100px;
+    padding-bottom: 0px;
 }
 
 .pages-text-box p {
@@ -916,7 +937,7 @@ h2 {
     background-color: #333842;
     border-radius: 20px;
     position: relative;
-    margin: 50px 0;
+    margin: 19px 0;
     transition: all .3s ease-out;
     -o-transition: all .3s ease-out;
     -moz-transition: all .3s ease-out;

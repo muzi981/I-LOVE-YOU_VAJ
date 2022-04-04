@@ -17,6 +17,37 @@
     <link rel="stylesheet" href="css/viewer.min.css">
     <link rel="stylesheet" href="css/mind.css">
 </head>
+<script src="http://code.jquery.com/jquery-1.4.4.js"></script>
+<script>
+    //原生JS方法
+    var test = {};
+    test.getTop = function(imgT) {
+        var top = 0;
+        do {
+            top += imgT.offsetTop;
+        } while ((imgT = imgT.offsetParent).nodeName != 'BODY'); //获取到body节点为止来取得图片的高度
+        return top;
+    };
+    test.lazy = function() {
+        var top = document.body.scrollTop || document.documentElement.scrollTop; //获得滚动条下拉的距离
+        var h = document.documentElement.clientHeight || document.body.clientHeight; //获得可视界面的高度
+        var imgs = document.getElementsByTagName('img'); //获得所有图片
+        for (var i = 0; i < imgs.length; i++) {
+            var _src = imgs[i].getAttribute('lazy-src');
+            if (_src !== imgs[i].src) {
+                var _top = test.getTop(imgs[i]);
+                //console.log(_top+" "+top+" "+h)
+                if (_top >= top && _top <= top + h) { //在可视区域内的图片加载
+                    imgs[i].src = _src;
+                }
+            }
+        }
+    }
+    test.lazy();
+    window.οnscrοll = function() {
+        test.lazy();
+    }
+</script>
 
 <body>
     <div class="load">
@@ -84,6 +115,7 @@
                     <div class="div2"></div>
                 </div>
                 <div class="img">
+                    <!-- <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/toux.jpg" alt="muzi"> -->
                     <img src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/LOVE-ye/toux.jpg" alt="muzi">
                 </div>
                 <div class="introduction">
@@ -154,7 +186,7 @@
                     </div>
                     <div class="leftBar-Pages-optine" id="leftBar-Pages-optine3" onclick="pages_title_option_click(3 ,false);PagesClick(false)">
                         <img src="./images/stuck_out_tongue_winking_eye.png" alt="stuck_out_tongue_winking_eye">
-                        <p>我的笔记.md</p>
+                        <p>专属的浪漫.md</p>
                     </div>
                     <div class="leftBar-Pages-optine" id="leftBar-Pages-optine4" onclick="pages_title_option_click(4 ,false);PagesClick(false)">
                         <img src="./images/yum.png" alt="yum">
@@ -186,7 +218,7 @@
                     </div>
                     <div class="pages-title-option" id="pages-title-option3" onclick="pages_title_option_click(3, true)">
                         <img src="./images/stuck_out_tongue_winking_eye.png" alt="stuck_out_tongue_winking_eye">
-                        <p>我的笔记.md</p>
+                        <p>属于你的专属浪漫.md</p>
                     </div>
                     <div class="pages-title-option" id="pages-title-option4" onclick="pages_title_option_click(4, true)">
                         <img src="./images/yum.png" alt="yum">
@@ -218,21 +250,26 @@
                     </div>
                 </div> -->
                 <div class="pages-text pages-text-show" id="pages-text1">
-                    <div class="pages-text-box" id="meMD">
-                        <h1>你好，我是Muzi<br />热爱编程，旅游，运动。</h1>
+                    <div class="pages-text-box pages-text-box1" id="meMD">
+                        <h1>你好,我是Muzi<br />热爱编程，旅游，运动。</h1>
                         <div class="pages-text-box-img">
+                            <!-- <img src="VAJ-Ilove/lovexhj.jpg" alt="lovexhj" class="n0ts-img"> -->
+                            <!-- <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/lovexhj.jpg" alt="lovexhj" class="n0ts-img"> -->
                             <img src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/LOVE-ye/lovexhj.jpg" alt="lovexhj" class="n0ts-img">
                             <h6>❤我的小公主写的</h6>
                         </div>
                         <p>小时候总是不爱去说话，但现在却相反；</p>
                         <p>很喜欢和爱的人，说自己的事情。</p>
                         <div class="pages-text-box-img">
+                            <!-- <img src="VAJ-Ilove/xi1.jpg" alt="lovexhj" class="n0ts-img"> -->
+                            <!-- <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/xi1.jpg" alt="me1" class="n0ts-img"> -->
                             <img src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/LOVE-ye/xi1.jpg" alt="me1" class="n0ts-img">
                             <h6>沉迷编程的我被猪猪恶搞+偷拍</h6>
                         </div>
                         <p>用照片记录下某一瞬间的美景，记录心中的美好。</p>
                         <p>也算是爱好摄影，但是每次都拍不好；</p>
                         <div class="pages-text-box-img">
+                            <!-- <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/feng.jpg" alt="fj1" class="n0ts-img"> -->
                             <img src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/LOVE-ye/feng1.jpg" alt="fj1" class="n0ts-img">
                             <h6>某次旅游途中随手抓拍</h6>
                         </div>
@@ -240,6 +277,7 @@
                         <p>没有那种起了多少公里的，但是还是喜欢，</p>
                         <p>骑行喜欢，也有益健康。</p>
                         <div class="pages-text-box-img">
+                            <!-- <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/qx1.jpg" alt="me2" class="n0ts-img"> -->
                             <img src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/LOVE-ye/qx.jpg" alt="me2" class="n0ts-img">
                             <h6>虽然照片是我的大猪，但是她也是热爱骑行！</h6>
                         </div>
@@ -247,6 +285,7 @@
                         <p>以兴趣作为核心，继续向前奔跑</p>
                         <p>即使前方的路看似绝境，也要有硬生生给自己开出一条路的勇气</p>
                         <div class="pages-text-box-img">
+                            <!-- <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/1.png" alt="index1" class="n0ts-img"> -->
                             <img src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/LOVE-ye/1.png" alt="index1" class="n0ts-img">
                             <h6>这是我的毕业开发</h6>
                         </div>
@@ -254,7 +293,7 @@
                 </div>
                 <!-- 页面二 -->
                 <div class="pages-text" id="pages-text2">
-                    <div class="pages-text-box">
+                    <div class="pages-text-box pages-text-box1">
                         <h1>我的开源</h1>
                         <ul class="giteeBoxUL">
                             <li>
@@ -279,7 +318,7 @@
                         </ul>
                     </div>
 
-                    <div class="pages-text-box">
+                    <div class="pages-text-box pages-text-box3">
                         <h1>我的开源</h1>
                         <ul class="giteeBoxUL">
                             <li>
@@ -306,8 +345,80 @@
                 </div>
                 <!-- 该页面为第三编辑页面 -->
                 <div class="pages-text" id="pages-text3">
-                    <div class="pages-text-box">
-                        <h1>test3</h1>
+                    <div class="pages-text-box pages-text-box1">
+                        <div class="pages-text-box-img">
+                            <h1>浪漫树</h1>
+                            <p>目光所及皆是你，</p>
+                            <p>亿万星辰不及你。</p>
+                            <ul class="giteeBoxUL">
+                                <li>
+                                    <div class="giteeBox-Title">
+                                        <div>
+                                            <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/shu.jpg" alt="me1" class="n0ts-img">
+                                            <div style="float: right;">qqqqq<br/> qsfhkjasbfjkas<br/></div>
+                                        </div>
+                                        <div style="float: right; margin-bottom: 10px;"></div>
+                                    </div>
+                                    <p class="giteeBox-Text"></p>
+                                    <p class="giteeBox-Time">最后更新：2022-03-21</p>
+                                    <a target="_blank" href="https://muzi981.github.io/shu_vaj/" class="aClick show">查看</a>
+                                </li>
+                            </ul>
+                            <h6>第一为你写的表白代码</h6>
+                        </div>
+                    </div>
+                    <div class="pages-text-box pages-text-box3">
+                        <div class="pages-text-box-img">
+                            <h1>浪漫520</h1>
+                            <p>小时候总是不爱去说话，但现在却相反；</p>
+                            <p>很喜欢和爱的人，说自己的事情。</p>
+                            <ul class="giteeBoxUL">
+                                <li>
+                                    <div class="giteeBox-Title">
+                                        <div>
+                                            <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/shu.jpg" alt="me1" class="n0ts-img">
+                                            <div style="float: right;">qqqqq<br/> qsfhkjasbfjkas<br/></div>
+                                        </div>
+                                        <div style="float: right; margin-bottom: 10px;">
+                                        </div>
+                                    </div>
+                                    <p class="giteeBox-Text">
+                                    </p>
+                                    <p class="giteeBox-Time">
+                                        最后更新：
+                                    </p>
+                                    <a target="_blank" href="https://muzi981.github.io/520_vaj.love/" class="aClick show">查看</a>
+                                </li>
+                            </ul>
+                            <h6>第一为你写的表白代码</h6>
+                        </div>
+                    </div>
+
+                    <div class="pages-text-box pages-text-box3">
+                        <div class="pages-text-box-img">
+                            <h1>浪漫树</h1>
+                            <p>小时候总是不爱去说话，但现在却相反；</p>
+                            <p>很喜欢和爱的人，说自己的事情。</p>
+                            <ul class="giteeBoxUL">
+                                <li>
+                                    <div class="giteeBox-Title">
+                                        <div>
+                                            <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/shu.jpg" alt="me1" class="n0ts-img">
+                                            <div style="float: right;">qqqqq<br/> qsfhkjasbfjkas<br/></div>
+                                        </div>
+                                        <div style="float: right; margin-bottom: 10px;">
+                                        </div>
+                                    </div>
+                                    <p class="giteeBox-Text">
+                                    </p>
+                                    <p class="giteeBox-Time">
+                                        最后更新：
+                                    </p>
+                                    <a target="_blank" href="<?php echo substr($UserInfo[$i]['html_url'], 0, strrpos($UserInfo[$i]['html_url'], '.git'));?>" class="aClick show">查看</a>
+                                </li>
+                            </ul>
+                            <h6>第一为你写的表白代码</h6>
+                        </div>
                     </div>
                 </div>
                 <!-- 页面四 -->
@@ -330,14 +441,16 @@
                         <p>2016-09-10</p>
                         <p>故事开始</p>
                         <div class="pages-text-box-img">
-                            <img src="./images/love.jpg" alt="love1" class="n0ts-img">
+                            <!-- <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/love.jpg" alt="love1" class="n0ts-img"> -->
+                            <img src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/LOVE-ye/love.jpg" alt="love1" class="n0ts-img">
                             <h6>我们的第一张合影</h6>
                         </div>
                         <p>截止现在</p>
                         <p id="lovetime1">d</p>
                         <p>有你的每一天都如糖果一样甜</p>
                         <div class="pages-text-box-img">
-                            <img src="./images/love2.jpg" alt="love2" class="n0ts-img">
+                            <!-- <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/love2.jpg" alt="love2" class="n0ts-img"> -->
+                            <img src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/LOVE-ye/love2.jpg" alt="love2" class="n0ts-img">
                             <h6>看电影日常</h6>
                         </div>
                         <a href="http://muzu.gitee.io/vaj_-muzi_loveyou4" class="aClick" target="_blank">More?</a>
@@ -363,6 +476,7 @@
                         <p>2016-09-10</p>
                         <p>故事开始</p>
                         <div class="pages-text-box-img">
+                            <!-- <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/love.jpg" alt="love1" class="n0ts-img"> -->
                             <img src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/LOVE-ye/love.jpg" alt="love1" class="n0ts-img">
                             <h6>我们的第一张合影</h6>
                         </div>
@@ -370,6 +484,7 @@
                         <p id="lovetime2"></p>
                         <p>有你的每一天都如糖果一样甜</p>
                         <div class="pages-text-box-img">
+                            <!-- <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/love2.jpg" alt="love2" class="n0ts-img"> -->
                             <img src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/LOVE-ye/love2.jpg" alt="love2" class="n0ts-img">
                             <h6>看电影日常</h6>
                         </div>
