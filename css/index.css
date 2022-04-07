@@ -864,7 +864,7 @@ h2 {
 }
 
 .pages-text-box p {
-    font-size: 1.2rem;
+    /* font-size: 1.2rem; */
 }
 
 .pages-text-box .aClick {
@@ -1191,4 +1191,9 @@ h2 {
 
 .footer {
     background-color: #202b30;
+}
+
+.la {
+    color: rgb(192, 192, 192);
+    /* font-size: 20px; */
 }
