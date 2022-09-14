@@ -1,605 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VAJ-Muzi</title>
-    <script>
-        window.onload = function() {
-            document.getElementsByClassName("load")[0].style.display = "none";
-            document.getElementsByClassName("Box")[0].classList.add("BoxLoad");
-            resize();
-        }
-    </script>
-    <script>
-        //原生JS方法
-        var test = {};
-        test.getTop = function(imgT) {
-            var top = 0;
-            do {
-                top += imgT.offsetTop;
-            } while ((imgT = imgT.offsetParent).nodeName != 'BODY'); //获取到body节点为止来取得图片的高度
-            return top;
-        };
-        test.lazy = function() {
-            var top = document.body.scrollTop || document.documentElement.scrollTop; //获得滚动条下拉的距离
-            var h = document.documentElement.clientHeight || document.body.clientHeight; //获得可视界面的高度
-            var imgs = document.getElementsByTagName('img'); //获得所有图片
-            for (var i = 0; i < imgs.length; i++) {
-                var _src = imgs[i].getAttribute('lazy-src');
-                if (_src !== imgs[i].src) {
-                    var _top = test.getTop(imgs[i]);
-                    //console.log(_top+" "+top+" "+h)
-                    if (_top >= top && _top <= top + h) { //在可视区域内的图片加载
-                        imgs[i].src = _src;
-                    }
-                }
-            }
-        }
-        test.lazy();
-        window.οnscrοll = function() {
-            test.lazy();
-        }
-    </script>
-    <!-- <script src="http://code.jquery.com/jquery-1.4.4.js"></script> -->
-    <link rel="icon" href="hh.ico">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/viewer.min.css">
-    <link rel="stylesheet" href="css/mind.css">
+    <title>登陆页面</title>
+        <!-- author xjt -->
 </head>
-
+<!-- <script>
+    function myFunction() {
+        var input = document.getElementById("we").value;
+        var input1 = document.getElementById("we1").value;
+        var m=123;
+        var m1=1234;
+        if(input==m&&input1==m1){
+            // window.alert('tiao')
+            window.location.href='https://muzi981.github.io/I-LOVE-YOU_VAJ/';
+        }else{
+            window.alert('错误')
+        }
+    }
+</script> -->
+<script src="./js/N0ts.js"></script>
 <body>
-    <div class="load">
-        <p>加载中...</p>
-        <div class="loadLove">
-            <div class="loadLeft"></div>
-            <div class="loadRight"></div>
+    <div class="login">
+        <h2>登陆\注册</h2>
+        <div class="login_form">
+            <span>账号：</span>
+            <input type="text" placeholder="请输入账号" id="we">
+            <br>
+            <span>密码：</span>
+            <input type="password" placeholder="请输入密码" id="we1">
+        </div>
+        <div class="btn">
+            <button class="login_btn" onclick="myFunction()">登 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</button>
         </div>
     </div>
-
-    <div class="Box">
-        <!-- ALL -->
-        <div id="Indexbox">
-            <div :class="{ blackWindow: true, blackWindowShow: tabState || menuTabState || pagesTabState }" @click="closeBlackWindow"></div>
-
-            <!-- 顶部菜单 -->
-            <div class="menu" id="menu">
-                <img src="hh.ico" alt="favicon">
-                <ul id="menuUL">
-                    <li>
-                        <a href="https://muzi981.github.io/I-LOVE-YOU_VAJ/" target="_blank">首页</a>
-                    </li>
-                    <li>
-                        <a href="http://muzu.gitee.io/vaj_-muzi_loveyou2" target="_blank">关于我们</a>
-                    </li>
-                    <li>
-                        <a href="http://muzu.gitee.io/vaj_-muzi_loveyou2" target="_blank">我的项目</a>
-                    </li>
-                    <!-- <li>
-                        <a href="http://muzu.gitee.io/vaj_-muzi_loveyou2" target="_blank">笔记</a>
-                    </li> -->
-                    <li>
-                        <a href="http://muzi981.github.io" target="_blank">我的博客</a>
-                    </li>
-                    <li>
-                        <a href="http://muzu.gitee.io/vaj_-muzi_loveyou2" target="_blank">留言</a>
-                    </li>
-                    <li>
-                        <a href="http://muzu.gitee.io/iloveyou-lj/index-1/Muzi-1/index.html" target="_blank">关于</a>
-                    </li>
-                    <li>
-                        <a href="https://muzi981.github.io/VAJ_SHOUYE/" target="_blank">回到开始</a>
-                    </li>
-                </ul>
-                <p>VAJ-Muzi</p>
-            </div>
-
-            <!-- 左侧菜单按钮 -->
-            <div class="leftBar">
-                <div class="leftBar-ButtomMe" onclick="MeClick(true)"></div>
-                <!-- <div class="leftBar-ButtomMe" onclick="MeClick(true)"></div> -->
-                <!-- <div class="leftBar-ButtomMe1" onclick="MeClick(true)"></div> -->
-                <div class="leftBar-ButtomMenu" id="leftBar-ButtomMenu" onclick="MenuClick(true)">
-                    <div class="div1"></div>
-                    <div class="div2"></div>
-                    <div class="div3"></div>
-                </div>
-                <div class="leftBar-ButtomPages" id="menuPages" onclick="PagesClick(true)"></div>
-            </div>
-
-            <!-- 左侧拉出菜单 我 -->
-            <div class="leftBar-Me" id="leftBar-Me">
-                <div class="leftBar-ButtomClose" onclick="MeClick(false)">
-                    <div class="div1"></div>
-                    <div class="div2"></div>
-                </div>
-                <div class="img">
-                    <!-- <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/toux.jpg" alt="muzi"> -->
-                    <img src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/LOVE-ye/toux.jpg" alt="muzi">
-                </div>
-                <div class="introduction">
-                    <h1>Muzi</h1>
-                    <p>大专的咸鱼，爱好计算机、旅行、游戏，以及我公主般的女朋友。</p>
-                </div>
-                <div class="icon">
-                    <ul>
-                        <li><a href="https://wpa.qq.com/msgrd?v=3&uin=2428412161&site=qq&menu=yes"><i class="fa fa-qq"aria-hidden="true"></i></a></li>
-                        <li><a href="https://github.com/muzi198"><i class="fa fa-github fa-lg"aria-hidden="true"></i></a></li>
-                        <li><a href=""><i class="fa fa-wordpress" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-                <div class="connect">
-                    <a href="">关于</a>
-                    <a href="">留言</a>
-                </div>
-            </div>
-
-            <!-- 左侧拉出菜单 顶部菜单 -->
-            <div class="leftBar-titleMenu" id="leftBar-titleMenu">
-                <div class="leftBar-ButtomClose" onclick="MenuClick(false)">
-                    <div class="div1"></div>
-                    <div class="div2"></div>
-                </div>
-                <h1>导航</h1>
-                <ul>
-                    <li>
-                        <a href="http://muzu.gitee.io/vaj_-muzi_loveyou2" target="_blank" onclick="MenuClick(false)">首页</a>
-                    </li>
-                    <li>
-                        <a href="http://muzu.gitee.io/vaj_-muzi_loveyou2" target="_blank" onclick="MenuClick(false)">关于我</a>
-                    </li>
-                    <li>
-                        <a href="http://muzu.gitee.io/vaj_-muzi_loveyou2" target="_blank" onclick="MenuClick(false)">我的垃圾项目</a>
-                    </li>
-                    <li>
-                        <a href="http://muzu.gitee.io/vaj_-muzi_loveyou2" target="_blank" onclick="MenuClick(false)">我的爱人</a>
-                    </li>
-                    <li>
-                        <a href="http://muzu.gitee.io/vaj_-muzi_loveyou2" target="_blank" onclick="MenuClick(false)">笔记</a>
-                    </li>
-                    <li>
-                        <a href="http://muzu.gitee.io/vaj_-muzi_loveyou2" target="_blank" onclick="MenuClick(false)">博客</a>
-                    </li>
-                    <li>
-                        <a href="http://muzu.gitee.io/vaj_-muzi_loveyou2" target="_blank" onclick="MenuClick(false)">留言</a>
-                    </li>
-                </ul>
-            </div>
-
-
-            <!-- 左侧拉出菜单 页面 -->
-            <div class="leftBar-Pages" id="leftBar-Pages">
-                <div class="leftBar-ButtomClose" onclick="PagesClick(false)">
-                    <div class="div1"></div>
-                    <div class="div2"></div>
-                </div>
-                <div class="leftBar-Pages-box">
-                    <h1>页面</h1>
-                    <div class="leftBar-Pages-optine" id="leftBar-Pages-optine1" onclick="pages_title_option_click(1 ,false);PagesClick(false)">
-                        <img src="./images/stuck_out_tongue.png" alt="stuck_out_tongue">
-                        <p>hello 猪猪.md</p>
-                    </div>
-                    <div class="leftBar-Pages-optine" id="leftBar-Pages-optine3" onclick="pages_title_option_click(3 ,false);PagesClick(false)">
-                        <img src="./images/stuck_out_tongue_winking_eye.png" alt="stuck_out_tongue_winking_eye">
-                        <p>属于你的专属的浪漫.md</p>
-                    </div>
-                    <div class="leftBar-Pages-optine" id="leftBar-Pages-optine2" onclick="pages_title_option_click(2, false);PagesClick(false)">
-                        <img src="./images/stuck_out_tongue_closed_eyes.png" alt="stuck_out_tongue_closed_eyes">
-                        <p>我的开源项目.md</p>
-                    </div>
-
-                    <div class="leftBar-Pages-optine" id="leftBar-Pages-optine4" onclick="pages_title_option_click(4 ,false);PagesClick(false)">
-                        <img src="./images/yum.png" alt="yum">
-                        <p>我的相册.md</p>
-                    </div>
-                    <div class="leftBar-Pages-optine" id="leftBar-Pages-optine5" onclick="pages_title_option_click(5 ,false);PagesClick(false)">
-                        <img src="./images/yum.png" alt="yum">
-                        <p>经历.md</p>
-                    </div>
-                    <div class="leftBar-Pages-optine" id="leftBar-Pages-optine6" onclick="pages_title_option_click(6 ,false);PagesClick(false)">
-                        <img src="./images/icecream.png" alt="icecream">
-                        <p>我的女孩.md</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 页面版块1 -->
-            <div class="pages" id="pages">
-
-                <!-- 页面选项卡 -->
-                <div class="pages-title">
-                    <div class="pages-title-option pages-title-option-click" id="pages-title-option1" onclick="pages_title_option_click(1, true)">
-                        <img src="./images/stuck_out_tongue.png" alt="stuck_out_tongue">
-                        <p>hello 猪猪.md</p>
-                    </div>
-                    <div class="pages-title-option" id="pages-title-option3" onclick="pages_title_option_click(3, true)">
-                        <img src="./images/stuck_out_tongue_winking_eye.png" alt="stuck_out_tongue_winking_eye">
-                        <p>属于你的专属浪漫.md</p>
-                    </div>
-                    <div class="pages-title-option" id="pages-title-option2" onclick="pages_title_option_click(2, true)">
-                        <img src="./images/stuck_out_tongue_closed_eyes.png" alt="stuck_out_tongue_closed_eyes">
-                        <p>我的开源项目.md</p>
-                    </div>
-
-                    <div class="pages-title-option" id="pages-title-option4" onclick="pages_title_option_click(4, true)">
-                        <img src="./images/yum.png" alt="yum">
-                        <p>我的相册.md</p>
-                    </div>
-                    <div class="pages-title-option" id="pages-title-option5" onclick="pages_title_option_click(5, true)">
-                        <img src="./images/yum.png" alt="yum">
-                        <p>经历.md</p>
-                    </div>
-                    <div class="pages-title-option" id="pages-title-option6" onclick="pages_title_option_click(6, true)" style="display: none;">
-                        <img src="./images/icecream.png" alt="icecream">
-                        <p>hello world.md</p>
-                    </div>
-                    <!-- <div class="pages-title-option" id="pages-title-option6" onclick="pages_title_option_click(5, true)" style="display: none;">
-                        <img src="./images/icecream.png" alt="icecream">
-                        <p>hello world.md</p>
-                    </div> -->
-                    <!-- <div class="pages-title-option" id="pages-title-option7" onclick="pages_title_option_click(5, true)" style="display: none;">
-                        <img src="./images/icecream.png" alt="icecream">
-                        <p>hello world.md</p>
-                    </div> -->
-                </div>
-
-                <!-- 页面 -->
-                <!-- 页面一 -->
-                <!-- hello 猪猪.md -->
-                <!-- <div class="pages-text" id="pages-text1">
-                    <div class="pages-text-box">
-                        <h1>test1</h1>
-                    </div>
-                </div> -->
-                <div class="pages-text pages-text-show" id="pages-text1">
-                    <div class="pages-text-box pages-text-box1" id="meMD">
-                        <h1>你好,我是Muzi<br />热爱编程，旅游，运动。</h1>
-                        <div class="pages-text-box-img">
-                            <!-- <img src="VAJ-Ilove/lovexhj.jpg" alt="lovexhj" class="n0ts-img"> -->
-                            <!-- <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/lovexhj.jpg" alt="lovexhj" class="n0ts-img"> -->
-                            <img src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/LOVE-ye/lovexhj.jpg" alt="lovexhj" class="n0ts-img">
-                            <h6>❤我的小公主写的</h6>
-                        </div>
-                        <p>小时候总是不爱去说话，但现在却相反；</p>
-                        <p>很喜欢和爱的人，说自己的事情。</p>
-                        <div class="pages-text-box-img">
-                            <!-- <img src="VAJ-Ilove/xi1.jpg" alt="lovexhj" class="n0ts-img"> -->
-                            <!-- <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/xi1.jpg" alt="me1" class="n0ts-img"> -->
-                            <img src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/LOVE-ye/xi1.jpg" alt="me1" class="n0ts-img">
-                            <h6>沉迷编程的我被猪猪恶搞+偷拍</h6>
-                        </div>
-                        <p>用照片记录下某一瞬间的美景，记录心中的美好。</p>
-                        <p>也算是爱好摄影，但是每次都拍不好；</p>
-                        <div class="pages-text-box-img">
-                            <!-- <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/feng.jpg" alt="fj1" class="n0ts-img"> -->
-                            <img src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/LOVE-ye/feng1.jpg" alt="fj1" class="n0ts-img">
-                            <h6>某次旅游途中随手抓拍</h6>
-                        </div>
-                        <p>当然，我也喜欢骑行。</p>
-                        <p>没有那种起了多少公里的，但是还是喜欢，</p>
-                        <p>骑行喜欢，也有益健康。</p>
-                        <div class="pages-text-box-img">
-                            <!-- <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/qx1.jpg" alt="me2" class="n0ts-img"> -->
-                            <img src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/LOVE-ye/qx.jpg" alt="me2" class="n0ts-img">
-                            <h6>虽然照片是我的大猪，但是她也是热爱骑行！</h6>
-                        </div>
-                        <p>成绩不好的我只能放手一搏</p>
-                        <p>以兴趣作为核心，继续向前奔跑</p>
-                        <p>即使前方的路看似绝境，也要有硬生生给自己开出一条路的勇气</p>
-                        <div class="pages-text-box-img">
-                            <!-- <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/1.png" alt="index1" class="n0ts-img"> -->
-                            <img src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/LOVE-ye/1.png" alt="index1" class="n0ts-img">
-                            <h6>这是我的毕业开发</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 页面二 -->
-                <!-- 属于你的专属浪漫.md -->
-                <div class="pages-text" id="pages-text3">
-                    <!-- 爱情树 -->
-                    <div class="pages-text-box pages-text-box1">
-                        <div class="pages-text-box-img">
-                            <h1>浪漫时间树</h1>
-                            <p class="la">目光所及皆是你，亿万星辰不及你</p>
-                            <!-- <p>亿万星辰不及你。</p> -->
-                            <ul class="giteeBoxUL">
-                                <li>
-                                    <div class="giteeBox-Title">
-                                        <div>
-                                            <!-- <p class="zhuanshu">你是我一时的冲动</br>
-                                                也是我良久的喜欢
-                                            </p> -->
-                                            <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/shu.jpg" alt="me1" class="n0ts-img">
-                                            <!-- <div style="float: right;">你是我一时的冲动<br/>也是我良久的喜欢<br/></div> -->
-                                        </div>
-                                        <!-- <div style="float: right; margin-bottom: 10px;"></div> -->
-                                    </div>
-                                    <p class="giteeBox-Text"></p>
-                                    <!-- <p class="giteeBox-Time">最后更新：2022-03-21</p> -->
-                                    <a target="_blank" href="https://muzi981.github.io/shu_vaj/" class="aClick show">查看</a>
-                                </li>
-                            </ul>
-                            <h6>写给你的第一个浪漫</h6>
-                        </div>
-                    </div>
-                    <!-- 520-表白 -->
-                    <div class="pages-text-box pages-text-box3">
-                        <div class="pages-text-box-img">
-                            <h1>浪漫520</h1>
-                            <p>你闯进我的生命，仿佛毫无预料</p>
-                            <p>突然而至的夏天，携着灿烂的阳光照耀我的清晨</p>
-                            <ul class="giteeBoxUL">
-                                <li>
-                                    <div class="giteeBox-Title">
-                                        <div>
-                                            <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/520.png" alt="me1" class="n0ts-img">
-                                            <!-- <div style="float: right;">
-                                                第一次见你的时候<br/>我的心里已经炸开了烟花<br/>需要用一生来打扫灰炉<br/>
-                                            </div> -->
-                                        </div>
-                                        <div style="float: right; margin-bottom: 10px;">
-                                        </div>
-                                    </div>
-                                    <p class="giteeBox-Text">
-                                    </p>
-                                    <!-- <p class="giteeBox-Time">最后更新：</p> -->
-                                    <a target="_blank" href="https://muzi981.github.io/520_vaj.love/" class="aClick show">查看</a>
-                                </li>
-                            </ul>
-                            <h6>浪漫的520-只属于你的浪漫</h6>
-                        </div>
-                    </div>
-
-                    <div class="pages-text-box pages-text-box3">
-                        <div class="pages-text-box-img">
-                            <h1>旋转相册</h1>
-                            <p>很多时候觉得，喜欢的东西和你分享后</p>
-                            <p>欢乐就会加倍，你会不会也这样想的</p>
-                            <!-- <p>很喜欢和爱的人</p> -->
-                            <ul class="giteeBoxUL">
-                                <li>
-                                    <div class="giteeBox-Title">
-                                        <div>
-                                            <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/shu.jpg" alt="me1" class="n0ts-img">
-                                            <!-- <div style="float: right;">qqqqq<br/> qsfhkjasbfjkas<br/></div> -->
-                                        </div>
-                                        <div style="float: right; margin-bottom: 10px;">
-                                        </div>
-                                    </div>
-                                    <p class="giteeBox-Text">
-                                    </p>
-                                    <!-- <p class="giteeBox-Time">最后更新：</p> -->
-                                    <a target="_blank" href="<?php echo substr($UserInfo[$i]['html_url'], 0, strrpos($UserInfo[$i]['html_url'], '.git'));?>" class="aClick show">查看</a>
-                                </li>
-                            </ul>
-                            <h6>第一为你写的表白代码</h6>
-                        </div>
-                    </div>
-
-                    <div class="pages-text-box pages-text-box3">
-                        <div class="pages-text-box-img">
-                            <h1>旋转相册</h1>
-                            <p>每个人的世界，都会下雨.</p>
-                            <p>我没办法，在你心里撑伞.</p>
-                            <p>但是这一方小天地，我愿意陪你.</p>
-                            <!-- <p>很喜欢和爱的人</p> -->
-                            <ul class="giteeBoxUL">
-                                <li>
-                                    <div class="giteeBox-Title">
-                                        <div>
-                                            <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/shu.jpg" alt="me1" class="n0ts-img">
-                                            <!-- <div style="float: right;">qqqqq<br/> qsfhkjasbfjkas<br/></div> -->
-                                        </div>
-                                        <div style="float: right; margin-bottom: 10px;">
-                                        </div>
-                                    </div>
-                                    <p class="giteeBox-Text">
-                                    </p>
-                                    <!-- <p class="giteeBox-Time">最后更新：</p> -->
-                                    <a target="_blank" href="<?php echo substr($UserInfo[$i]['html_url'], 0, strrpos($UserInfo[$i]['html_url'], '.git'));?>" class="aClick show">查看</a>
-                                </li>
-                            </ul>
-                            <h6>第一为你写的表白代码</h6>
-                        </div>
-                    </div>
-                    <!-- 送花男孩 -->
-                    <div class="pages-text-box pages-text-box3">
-                        <div class="pages-text-box-img">
-                            <h1>花店</h1>
-                            <p>我这一辈子都是坚定的唯物主义者</p>
-                            <p>唯有你，我希望有来生</p>
-                            <ul class="giteeBoxUL">
-                                <li>
-                                    <div class="giteeBox-Title">
-                                        <div>
-                                            <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/hua.png" alt="me1" class="n0ts-img">
-                                            <!-- <div style="float: right;">
-                                                我早上起来发现</br>
-                                                今天天气很好,天也很蓝</br>
-                                                也有很多干净的云朵</br>
-                                                很多时候觉得,喜欢的东西和你分享后</br>
-                                                欢乐就会加倍</br>
-                                                你会不会也这样想的</br>
-                                            </div> -->
-                                        </div>
-                                        <div style="float: right; margin-bottom: 10px;">
-                                        </div>
-                                    </div>
-                                    <p class="giteeBox-Text">
-                                    </p>
-                                    <!-- <p class="giteeBox-Time">最后更新：</p> -->
-                                    <a target="_blank" href=" https://muzi981.github.io/hua_vaj/" class="aClick show">查看</a>
-                                </li>
-                            </ul>
-                            <h6>拿起鲜花，送给我的女孩</h6>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- 该页面为第三编辑页面 -->
-                <!-- 我的开源项目.md -->
-                <div class="pages-text" id="pages-text2">
-                    <div class="pages-text-box pages-text-box1">
-                        <h1>我的开源</h1>
-                        <ul class="giteeBoxUL">
-                            <li>
-                                <div class="giteeBox-Title">
-                                    <a target="_blank" href="<?php echo $UserInfo[$i]['namespace']['html_url'];?>" style="color: rgb(110, 110, 110);">
-                                    </a>
-                                    <!-- / -->
-                                    <a target="_blank" href="<?php echo substr($UserInfo[$i]['html_url'], 0, strrpos($UserInfo[$i]['html_url'], '.git'));?>">
-                                    </a>
-                                    <div class="starBox">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <span class="star"></span>
-                                    </div>
-                                </div>
-                                <p class="giteeBox-Text">
-                                </p>
-                                <p class="giteeBox-Time">
-                                    最后更新：
-                                </p>
-                                <a target="_blank" href="<?php echo substr($UserInfo[$i]['html_url'], 0, strrpos($UserInfo[$i]['html_url'], '.git'));?>" class="aClick show">查看</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="pages-text-box pages-text-box3">
-                        <h1>我的开源</h1>
-                        <ul class="giteeBoxUL">
-                            <li>
-                                <div class="giteeBox-Title">
-                                    <a target="_blank" href="<?php echo $UserInfo[$i]['namespace']['html_url'];?>" style="color: rgb(110, 110, 110);">
-                                    </a>
-                                    <!-- / -->
-                                    <a target="_blank" href="<?php echo substr($UserInfo[$i]['html_url'], 0, strrpos($UserInfo[$i]['html_url'], '.git'));?>">
-                                    </a>
-                                    <div class="starBox">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <span class="star"></span>
-                                    </div>
-                                </div>
-                                <p class="giteeBox-Text">
-                                </p>
-                                <p class="giteeBox-Time">
-                                    最后更新：
-                                </p>
-                                <a target="_blank" href="<?php echo substr($UserInfo[$i]['html_url'], 0, strrpos($UserInfo[$i]['html_url'], '.git'));?>" class="aClick show">查看</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 页面四 -->
-                <!-- <div class="pages-text" id="pages-text4">
-                    <div class="pages-text-box">
-                        <h1>test4</h1>
-                    </div>
-                </div> -->
-
-                <!-- 页面五 -->
-                <!-- <div class="pages-text" id="pages-text5">
-                    <div class="pages-text-box">
-                        <h1>test5</h1>
-                    </div>
-                </div> -->
-
-                <!-- 移动端我与她页面展示 -->
-                <div class="pages-text" id="pages-text6">
-                    <div class="pages-text-box">
-                        <h1>我与她</h1>
-                        <p>2016-09-10</p>
-                        <p>故事开始</p>
-                        <div class="pages-text-box-img">
-                            <!-- <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/love.jpg" alt="love1" class="n0ts-img"> -->
-                            <img src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/LOVE-ye/love.jpg" alt="love1" class="n0ts-img">
-                            <h6>我们的第一张合影</h6>
-                        </div>
-                        <p>截止现在</p>
-                        <p id="lovetime1">d</p>
-                        <p>有你的每一天都如糖果一样甜</p>
-                        <div class="pages-text-box-img">
-                            <!-- <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/love2.jpg" alt="love2" class="n0ts-img"> -->
-                            <img src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/LOVE-ye/love2.jpg" alt="love2" class="n0ts-img">
-                            <h6>看电影日常</h6>
-                        </div>
-                        <a href="http://muzu.gitee.io/vaj_-muzi_loveyou4" class="aClick" target="_blank">More?</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 页面版块2 -->
-            <div class="pages pages2" id="pages2">
-
-                <!-- 页面选项卡 -->
-                <div class="pages-title pages-title2">
-                    <div class="pages-title-option pages-title-option-click">
-                        <img src="./images/icecream.png" alt="icecream">
-                        <p>I with she.md</p>
-                    </div>
-                </div>
-
-                <!-- 页面 -->
-                <div class="pages-text pages-text-show">
-                    <div class="pages-text-box pages-text-box2">
-                        <h1>muzi1</h1>
-                        <p>2016-09-10</p>
-                        <p>故事开始</p>
-                        <div class="pages-text-box-img">
-                            <!-- <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/love.jpg" alt="love1" class="n0ts-img"> -->
-                            <img src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/LOVE-ye/love.jpg" alt="love1" class="n0ts-img">
-                            <h6>我们的第一张合影</h6>
-                        </div>
-                        <p>截止现在</p>
-                        <p id="lovetime2"></p>
-                        <p>有你的每一天都如糖果一样甜</p>
-                        <div class="pages-text-box-img">
-                            <!-- <img src="https://cdn.jsdelivr.net/gh/muzi981/tuku@main/bk/VAJ-Ilove/love2.jpg" alt="love2" class="n0ts-img"> -->
-                            <img src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/LOVE-ye/love2.jpg" alt="love2" class="n0ts-img">
-                            <h6>看电影日常</h6>
-                        </div>
-                        <a href="http://muzu.gitee.io/vaj_-muzi_loveyou4" class="aClick" target="_blank">More?</a>
-                    </div>
-                </div>
-                <!-- <div class="pages-text pages-text-show">
-                <div class="pages-text-box pages-text-box2">
-                    <h1>我与她</h1>
-                    <p>2016-09-10</p>
-                    <p>故事开始</p>
-                    <div class="pages-text-box-img">
-                        <img src="./images/love.jpg" alt="love1" class="n0ts-img">
-                        <h6>我们的第一张合影</h6>
-                    </div>
-                    <p>截止现在</p>
-                    <p id="lovetime2"></p>
-                    <p>有你的每一天都如糖果一样甜</p>
-                    <div class="pages-text-box-img">
-                        <img src="./images/love2.jpg" alt="love2" class="n0ts-img">
-                        <h6>看电影日常</h6>
-                    </div>
-                    <a href="http://muzu.gitee.io/vaj_-muzi_loveyou4" class="aClick" target="_blank">More?</a>
-                </div>
-            </div>
-
-        </div> -->
-                <!-- 底部版权 -->
-                <div class="footer" id="footer">
-                    <p class="left"> VAJ|木子
-                        <a href=""></a>
-                    </p>
-                    <p class="right">
-                        <a href="">始于2016年9月10日</a>
-                    </p>
-                </div>
-
-            </div>
-        </div>
-        <script src="./js/N0ts.js"></script>
-        <script src="js/jquery.min.js"></script>
-        <script src="./js/viewer.min.js"></script>
 </body>
+<script>
+    function login(){
+        console.log('登录按钮点击了');
+    }
+</script>
+<style>
+    body{
+        padding: 0;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        background-image: linear-gradient(#a18cd1 0%, #fbc2eb 100%);
+        background-size: cover;
+        flex: 1;
+        align-items: center;
+    }
+    .login{
+        text-align: center;
+        margin: 0 auto;
+        width: 600px;
+        height: 520px;
+        background-color: rgba(87, 86, 86, 0.2);
+        border-radius: 25px;
+        box-shadow: 5px 2px 35px -7px #ff9a9e;
+    }
+    .login h2{
+        margin-top: 40px;
+        color: aliceblue;
+        font-weight: 100;
+    }
+    .login_form{
+        padding: 20px;
+    }
+    .login_form span{
+        color: rgb(131, 220, 255);
+        font-size: 18px;
+        font-weight: 100;
+    }
+    .login_form input{
+        background-color: transparent;
+        width: 320px;
+        padding: 2px;
+        text-indent: 2px;
+        color: white;
+        font-size: 20px;
+        height: 45px;
+        margin: 30px 30px 30px 5px;
+        outline: none;
+        border: 0;
+        border-bottom: 1px solid rgb(131, 220, 255);
+    }
+    input::placeholder{
+        color: #fbc2eb;
+        font-weight: 100;
+        font-size: 18px;
+        font-style: italic;
+    }
+    .login_btn{
+        background-color: rgba(255, 255, 255, 0.582);
+        border: 1px solid rgb(190, 225, 255);
+        padding: 10px;
+        width: 240px;
+        height: 60px;
+        border-radius: 30px;
+        font-size: 30px;
+        color: rgb(100, 183, 255);
+        font-weight: 100;       
+        margin-top: 15px;
+    }
+    .login_btn:hover{
+        box-shadow: 2px 2px 15px 2px rgb(190, 225, 255);
+        background-color: transparent;
+        color: white;
+        /* 选择动画 */
+        animation: login_mation 0.5s;
+    }
+
+    /* 定义动画 */
+    @keyframes login_mation
+    {
+        from {
+            background-color: rgba(255, 255, 255, 0.582);
+            box-shadow: 0px 0px 15px 2px rgb(190, 225, 255);
+        }
+        to {
+            background-color: transparent;
+            color: white;
+            box-shadow: 2px 2px 15px 2px rgb(190, 225, 255);
+        }
+    }
+</style>
 
 </html>

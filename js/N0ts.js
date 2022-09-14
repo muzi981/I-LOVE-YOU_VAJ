@@ -52,6 +52,20 @@ function MenuClick(a) {
     }
 }
 
+function myFunction() {
+    var input = document.getElementById("we").value;
+    var input1 = document.getElementById("we1").value;
+    var m=123;
+    var m1=1234;
+    if(input==m&&input1==m1){
+        // window.alert('tiao')
+        // window.location.href='';
+        window.location='demo.html';
+    }else{
+        window.alert('错误')
+    }
+}
+
 function PagesClick(a) {
     if (a) {
         var a = document.getElementById("leftBar-Pages");
