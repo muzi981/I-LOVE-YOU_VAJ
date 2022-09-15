@@ -62,7 +62,7 @@ function myFunction() {
         // window.location.href='';
         window.location='demo.html';
     }else{
-        window.alert('错误')
+        window.alert('账号密码错误重新输入')
     }
 }
 
