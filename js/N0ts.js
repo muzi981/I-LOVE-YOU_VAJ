@@ -60,7 +60,7 @@ function myFunction() {
     if(input==m&&input1==m1){
         // window.alert('tiao')
         // window.location.href='';
-        window.location='demo.html';
+        window.location='demo1.html';
     }else{
         window.alert('账号密码错误重新输入')
     }
