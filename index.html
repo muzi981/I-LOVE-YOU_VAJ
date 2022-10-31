@@ -6,103 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>登陆页面</title>
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-    <!-- <script src="./js/mm.js" type="text/javascript" charset="utf-8"></script> -->
     <script src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/boke-ye%2Fbackground%2FJavaScript%2Fpassword-json.js"></script>
     <script src="https://12-1309606677.cos.ap-nanjing.myqcloud.com/boke-ye%2Fbackground%2FJavaScript%2Ff12.js"></script>
 </head>
-<!--<script src="./js/N0ts.js"></script>-->
-<script>
-    $(function () {
-        var $b1Ele = $("#user");
-        // 给按钮标签绑定事件
-        $b1Ele.click(function () {
-            var $userName = $('#we');
-            var $passWord = $('#we1');
-            if ($userName.val().length == 0 || $passWord.val().length == 0) {
-                //简单判断用户名和密码不为空
-                alert('用户不能为空');
-                // $('.errors').first().text('用户不能为空');
-            } else {
-                // $('.errors').first().text('用户');
-                // var name = username.val();
-                var username = $userName.val();
-                var password = $passWord.val();
-                var userurl = 'demo.html';
-                // var userurl = "index.html?usrname=" + name; //登录到url连接并带值
-                function ajx() {
-                    function pd(){
-                        var customerId = username;
-                        // var customerId = result.data.id;  //将数据中用户信息的ID赋值给变量
-                        sessionStorage.customerId = customerId;  //将变量存储到本地sessionStorage中，并且value为customerID
-                        window.location.href = userurl; //跳转连接 index.html页面
-                    }
-                    var res = eval(info);
-                    if (username == res.blog.muzi[0].name && password == res.blog.muzi[0].pass) {
-                        pd();
-                    }else if (username == res.blog.muzi[1].name && password == res.blog.muzi[1].pass){
-                        pd();
-                    }else if (username == res.blog.vaj[0].name && password == res.blog.vaj[0].pass){
-                        pd();
-                    }else if(username == res.blog.vaj[1].name && password == res.blog.vaj[1].pass){
-                        pd();
-                    } else {
-                        alert("登录失败，请重新输入账号密码");
-                    }
-                }
-                ajx();
-                // var obj = eval(info);
-                // // alert(obj.s[0].name);
-                // if (username == obj.s[0].name && password == obj.s[0].pass) {
-                //     var customerId = username;
-                //     // var customerId = result.data.id;  //将数据中用户信息的ID赋值给变量
-                //     sessionStorage.customerId = customerId;  //将变量存储到本地sessionStorage中，并且value为customerID
-                //     window.location.href = userurl; //跳转连接 index.html页面
-                // } else {
-                //     alert('错误')
-                // }
-                // $.ajax({
-                //     // type: "POST", //post方式
-                //     // url: "/api/login",//登录接口
-                //     // data: {
-                //     //     username1: $userName.val(),
-                //     //     password2: $passWord.val()
-                //     //     // username: username.val(),
-                //     //     // password: password.val()
-                //     // },
-                //     // dataType: "json",
-                //     success: function (data){
-                //         if($userName.val() == 1 && $passWord.val() == json读取){
-                //             var customerId = $userName.val().$passWord.val();
-                //             // var customerId = result.data.id;  //将数据中用户信息的ID赋值给变量
-                //             sessionStorage.customerId = customerId;  //将变量存储到本地sessionStorage中，并且value为customerID
-                //             window.location.href = userurl; //跳转连接 index.html页面
-                //         }else{
-                //             $("#prompt-3").css("display", "block").html("&#xe60b;" + result.msg);//没登录时提示信息，后台做的判断
-                //         }
-                //     },
-                //     error: function (data) {
-                //         var customerId = $userName.val()&&$passWord.val();
-                //         alert(customerId);
-                //         alert($userName.val());
-                //         alert("error!!");
-                //     }
-                //     // success: function (result) {
-                //     //     if (result.code == 0) {  //后台返回状态码，code=0的时候登录成功
-                //     //         var customerId = result.data.id;  //将数据中用户信息的ID赋值给变量
-                //     //         sessionStorage.customerId = customerId;  //将变量存储到本地sessionStorage中，并且value为customerID
-                //     //         window.location.href = userurl; //跳转连接 index.html页面
-                //     //     } else {
-                //     //         $("#prompt-3").css("display", "block").html("&#xe60b;" + result.msg);//没登录时提示信息，后台做的判断
-                //     //     }
-                //     // },
-                //     // error: function () {
-                //     //     alert("error!!");
-                //     // }
-                // })
-            }
-        });
-    })
-</script>
 <body>
     <div class="login">
         <h2>登陆\注册</h2>
@@ -211,5 +117,96 @@
         }
     }
 </style>
-
+<script>
+    $(function () {
+        var $b1Ele = $("#user");
+        // 给按钮标签绑定事件
+        $b1Ele.click(function () {
+            var $userName = $('#we');
+            var $passWord = $('#we1');
+            if ($userName.val().length == 0 || $passWord.val().length == 0) {
+                //简单判断用户名和密码不为空
+                alert('用户不能为空');
+                // $('.errors').first().text('用户不能为空');
+            } else {
+                // $('.errors').first().text('用户');
+                // var name = username.val();
+                var username = $userName.val();
+                var password = $passWord.val();
+                var userurl = 'demo.html';
+                // var userurl = "index.html?usrname=" + name; //登录到url连接并带值
+                function ajx() {
+                    function pd(){
+                        var customerId = username;
+                        // var customerId = result.data.id;  //将数据中用户信息的ID赋值给变量
+                        sessionStorage.customerId = customerId;  //将变量存储到本地sessionStorage中，并且value为customerID
+                        window.location.href = userurl; //跳转连接 index.html页面
+                    }
+                    var res = eval(info);
+                    if (username == res.blog.muzi[0].name && password == window.atob(res.blog.muzi[0].pass)) {
+                        pd();
+                    }else if (username == res.blog.muzi[1].name && password == window.atob(res.blog.muzi[1].pass)){
+                        pd();
+                    }else if (username == res.blog.vaj[0].name && password == window.atob(res.blog.vaj[0].pass)){
+                        pd();
+                    }else if(username == res.blog.vaj[1].name && password == window.atob(res.blog.vaj[1].pass)){
+                        pd();
+                    } else {
+                        alert("登录失败，请重新输入账号密码");
+                    }
+                }
+                ajx();
+                // var obj = eval(info);
+                // // alert(obj.s[0].name);
+                // if (username == obj.s[0].name && password == obj.s[0].pass) {
+                //     var customerId = username;
+                //     // var customerId = result.data.id;  //将数据中用户信息的ID赋值给变量
+                //     sessionStorage.customerId = customerId;  //将变量存储到本地sessionStorage中，并且value为customerID
+                //     window.location.href = userurl; //跳转连接 index.html页面
+                // } else {
+                //     alert('错误')
+                // }
+                // $.ajax({
+                //     // type: "POST", //post方式
+                //     // url: "/api/login",//登录接口
+                //     // data: {
+                //     //     username1: $userName.val(),
+                //     //     password2: $passWord.val()
+                //     //     // username: username.val(),
+                //     //     // password: password.val()
+                //     // },
+                //     // dataType: "json",
+                //     success: function (data){
+                //         if($userName.val() == 1 && $passWord.val() == json读取){
+                //             var customerId = $userName.val().$passWord.val();
+                //             // var customerId = result.data.id;  //将数据中用户信息的ID赋值给变量
+                //             sessionStorage.customerId = customerId;  //将变量存储到本地sessionStorage中，并且value为customerID
+                //             window.location.href = userurl; //跳转连接 index.html页面
+                //         }else{
+                //             $("#prompt-3").css("display", "block").html("&#xe60b;" + result.msg);//没登录时提示信息，后台做的判断
+                //         }
+                //     },
+                //     error: function (data) {
+                //         var customerId = $userName.val()&&$passWord.val();
+                //         alert(customerId);
+                //         alert($userName.val());
+                //         alert("error!!");
+                //     }
+                //     // success: function (result) {
+                //     //     if (result.code == 0) {  //后台返回状态码，code=0的时候登录成功
+                //     //         var customerId = result.data.id;  //将数据中用户信息的ID赋值给变量
+                //     //         sessionStorage.customerId = customerId;  //将变量存储到本地sessionStorage中，并且value为customerID
+                //     //         window.location.href = userurl; //跳转连接 index.html页面
+                //     //     } else {
+                //     //         $("#prompt-3").css("display", "block").html("&#xe60b;" + result.msg);//没登录时提示信息，后台做的判断
+                //     //     }
+                //     // },
+                //     // error: function () {
+                //     //     alert("error!!");
+                //     // }
+                // })
+            }
+        });
+    })
+</script>
 </html>
